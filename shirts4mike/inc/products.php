@@ -1,6 +1,20 @@
 <?php
 
+function get_products_recent()
+{
+  $all = get_products_all();
+  $recent = array();
+  $i = 0;
+  $products_length = count($all);
 
+  foreach ($all as $product) {
+    $i += 1;
+    if ($i > $products_length - 4) {
+      $recent[] = $product;
+    }
+  }
+  return $recent;
+}
 
 function get_products_search($search)
 {
